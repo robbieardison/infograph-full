@@ -1,0 +1,822 @@
+/* Infograph tool themes + layout (scoped to .infograph-root) */
+
+/* —— Themes —— */
+
+/* 1. Atelier Ink — warm paper, coral accent */
+.infograph-root[data-theme="atelier"] {
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Source Sans 3", "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --brand-weight: 700;
+  --brand-tracking: -0.02em;
+  --title-tracking: -0.015em;
+  --radius: 10px;
+  --radius-lg: 18px;
+  --chip-radius: 10px;
+  --page-bg: #e8dfd2;
+  --page-bg-image: radial-gradient(ellipse at 20% 0%, #f3ebe0 0%, transparent 55%),
+    radial-gradient(ellipse at 90% 10%, #dccfc0 0%, transparent 40%);
+  --surface: #f7f1e8;
+  --canvas: #faf6f0;
+  --canvas-texture: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(60, 40, 20, 0.015) 2px,
+    rgba(60, 40, 20, 0.015) 3px
+  );
+  --ink: #1c1712;
+  --canvas-ink: #1c1712;
+  --muted: #6b5e52;
+  --canvas-muted: #7a6c5e;
+  --brand: #1c1712;
+  --accent: #e05a3c;
+  --accent-hover: #c94a30;
+  --accent-ink: #fff8f5;
+  --border: #d4c6b4;
+  --canvas-border: #e0d4c4;
+  --canvas-shadow: 0 18px 40px rgba(60, 40, 20, 0.08);
+  --kpi-bg: #f0e6d8;
+  --kpi-border: #e2d4c2;
+  --kpi-accent: #e05a3c;
+  --rank-track: #e8ddd0;
+  --hero-wash: linear-gradient(135deg, rgba(224, 90, 60, 0.12), transparent 50%);
+  --chart-palette: #e05a3c, #1c1712, #c4a574, #5c7a6a, #8b5e4b;
+}
+
+/* 2. Signal Board — Stable Panther petrol */
+.infograph-root[data-theme="signal"] {
+  --font-display: "IBM Plex Sans", "Segoe UI", sans-serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --brand-weight: 700;
+  --brand-tracking: -0.03em;
+  --radius: 4px;
+  --radius-lg: 8px;
+  --chip-radius: 4px;
+  --page-bg: #121416;
+  --page-bg-image: linear-gradient(180deg, #1a1d20 0%, #121416 40%);
+  --surface: #1c2024;
+  --canvas: #161a1e;
+  --ink: #e8eef0;
+  --canvas-ink: #f2fafb;
+  --muted: #8a9aa0;
+  --canvas-muted: #9bb0b6;
+  --brand: #1096a9;
+  --accent: #1096a9;
+  --accent-hover: #0d7f8f;
+  --accent-ink: #f2fafb;
+  --border: #2a3238;
+  --canvas-border: #2e383e;
+  --canvas-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+  --kpi-bg: #1e262c;
+  --kpi-border: #2e383e;
+  --kpi-accent: #1096a9;
+  --rank-track: #2a3238;
+  --hero-wash: linear-gradient(120deg, rgba(16, 150, 169, 0.2), transparent 55%);
+  --chart-palette: #1096a9, #ed4933, #c5e4ea, #5b8cff, #10a37f;
+}
+
+/* 3. Lattice — blueprint grid */
+.infograph-root[data-theme="lattice"] {
+  --font-display: "Space Grotesk", "Segoe UI", sans-serif;
+  --font-body: "Space Grotesk", "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --brand-weight: 700;
+  --brand-tracking: -0.04em;
+  --radius: 2px;
+  --radius-lg: 4px;
+  --chip-radius: 2px;
+  --page-bg: #eef1f4;
+  --page-bg-image:
+    linear-gradient(rgba(80, 110, 140, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(80, 110, 140, 0.07) 1px, transparent 1px);
+  --surface: #f7f9fb;
+  --canvas: #ffffff;
+  --ink: #1a2330;
+  --canvas-ink: #1a2330;
+  --muted: #5a6b7c;
+  --canvas-muted: #5a6b7c;
+  --brand: #1a2330;
+  --accent: #2f6fed;
+  --accent-hover: #2559c4;
+  --accent-ink: #f5f8ff;
+  --border: #c5d0db;
+  --canvas-border: #d0dae4;
+  --canvas-shadow: none;
+  --kpi-bg: #f0f4f8;
+  --kpi-border: #d0dae4;
+  --kpi-accent: #2f6fed;
+  --rank-track: #e2e8ef;
+  --hero-wash: linear-gradient(90deg, rgba(47, 111, 237, 0.08), transparent 40%);
+  --chart-palette: #2f6fed, #1a2330, #5a8a9a, #c45c26, #6b7c8a;
+}
+
+.infograph-root[data-theme="lattice"] {
+  background-size: 24px 24px;
+}
+
+/* 4. Lumen Field — airy daylight */
+.infograph-root[data-theme="lumen"] {
+  --font-display: "Syne", "Segoe UI", sans-serif;
+  --font-body: "Outfit", "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --brand-weight: 800;
+  --brand-tracking: -0.05em;
+  --title-tracking: -0.04em;
+  --radius: 16px;
+  --radius-lg: 28px;
+  --chip-radius: 999px;
+  --page-bg: #f4f7fb;
+  --page-bg-image: radial-gradient(ellipse at 10% 0%, #dce9f8 0%, transparent 50%),
+    radial-gradient(ellipse at 90% 20%, #e8f4ef 0%, transparent 45%),
+    linear-gradient(180deg, #eef3f9, #f7f9fc);
+  --surface: rgba(255, 255, 255, 0.72);
+  --canvas: #ffffff;
+  --ink: #152033;
+  --canvas-ink: #152033;
+  --muted: #5d6d82;
+  --canvas-muted: #6a7a90;
+  --brand: #152033;
+  --accent: #0d9488;
+  --accent-hover: #0b7c72;
+  --accent-ink: #f0fffc;
+  --border: rgba(21, 32, 51, 0.1);
+  --canvas-border: rgba(21, 32, 51, 0.08);
+  --canvas-shadow: 0 24px 60px rgba(40, 70, 110, 0.1);
+  --kpi-bg: #f3f8fb;
+  --kpi-border: transparent;
+  --kpi-accent: #0d9488;
+  --rank-track: #e5eef5;
+  --hero-wash: radial-gradient(circle at 80% 20%, rgba(13, 148, 136, 0.15), transparent 40%);
+  --chart-palette: #0d9488, #152033, #3b82f6, #f59e0b, #64748b;
+}
+
+/* 5. Nocturne — cinematic deep navy */
+.infograph-root[data-theme="nocturne"] {
+  --font-display: "DM Serif Display", Georgia, serif;
+  --font-body: "Figtree", "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --brand-weight: 400;
+  --brand-tracking: -0.01em;
+  --radius: 8px;
+  --radius-lg: 16px;
+  --chip-radius: 8px;
+  --page-bg: #070b14;
+  --page-bg-image: radial-gradient(ellipse at 50% -10%, #152038 0%, transparent 55%),
+    radial-gradient(ellipse at 100% 80%, #0c1628 0%, transparent 40%);
+  --surface: #0e1524;
+  --canvas: #0b1220;
+  --ink: #e6ecf5;
+  --canvas-ink: #eef3fb;
+  --muted: #8b97ad;
+  --canvas-muted: #93a0b8;
+  --brand: #7dd3fc;
+  --accent: #38bdf8;
+  --accent-hover: #0ea5e9;
+  --accent-ink: #061018;
+  --border: #1c2940;
+  --canvas-border: #1e2c45;
+  --canvas-shadow: 0 0 40px rgba(56, 189, 248, 0.06);
+  --kpi-bg: #111a2c;
+  --kpi-border: #1e2c45;
+  --kpi-accent: #7dd3fc;
+  --rank-track: #1a2740;
+  --hero-wash: radial-gradient(circle at 30% 80%, rgba(56, 189, 248, 0.12), transparent 45%);
+  --chart-palette: #38bdf8, #a78bfa, #34d399, #f472b6, #fbbf24;
+}
+
+/* —— Responsive —— */
+/* —— Layout (scoped) —— */
+
+.infograph-root {
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--page-bg);
+  background-image: var(--page-bg-image, none);
+  transition: background-color 0.35s ease, color 0.35s ease;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.infograph-root .ig-app {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 1.25rem 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (max-width: 860px) {
+  .infograph-root .workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .infograph-root .kpi-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .infograph-root .visual-row {
+    grid-template-columns: 1fr;
+  }
+
+  .infograph-root .chart-wrap {
+    height: 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  .infograph-root .ig-app {
+    padding: 1rem;
+  }
+
+  .infograph-root .kpi-strip {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .infograph-root .empty-state {
+    min-height: 360px;
+  }
+}
+
+/* —— Header —— */
+.infograph-root .ig-app-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.infograph-root .brand-mark {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 3.4rem);
+  font-weight: var(--brand-weight, 700);
+  letter-spacing: var(--brand-tracking, -0.03em);
+  line-height: 0.95;
+  color: var(--brand);
+}
+
+.infograph-root .brand-tagline {
+  margin: 0.35rem 0 0;
+  font-size: 0.95rem;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+}
+
+.infograph-root .header-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.infograph-root .btn {
+  appearance: none;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--ink);
+  padding: 0.55rem 1rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: transform 0.15s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.infograph-root .btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  border-color: var(--accent);
+}
+
+.infograph-root .btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.infograph-root .btn-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+
+.infograph-root .btn-primary:hover:not(:disabled) {
+  background: var(--accent-hover, var(--accent));
+}
+
+.infograph-root .btn-ghost {
+  background: transparent;
+}
+
+.infograph-root .file-btn {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* —— Theme bar —— */
+.infograph-root .theme-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.infograph-root .theme-label {
+  margin: 0;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  flex-shrink: 0;
+}
+
+.infograph-root .theme-chips {
+  display: flex;
+  gap: 0.4rem;
+  overflow-x: auto;
+  padding-bottom: 0.15rem;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+}
+
+.infograph-root .theme-chip {
+  appearance: none;
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--ink);
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--chip-radius, 999px);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.infograph-root .theme-chip.is-active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+
+/* —— Workspace —— */
+.infograph-root .workspace {
+  display: grid;
+  grid-template-columns: minmax(200px, 260px) 1fr;
+  gap: 1.25rem;
+  align-items: start;
+  flex: 1;
+}
+
+.infograph-root .workspace:not(:has(.controls)) {
+  grid-template-columns: 1fr;
+}
+
+.infograph-root .controls {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.infograph-root .controls[hidden],
+.infograph-root .empty-state[hidden],
+.infograph-root .infographic[hidden] {
+  display: none !important;
+}
+
+.infograph-root .controls-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.infograph-root .controls-hint {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.infograph-root .field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.infograph-root .field em {
+  font-style: normal;
+  font-weight: 400;
+  opacity: 0.75;
+}
+
+.infograph-root .field input,
+.infograph-root .field select {
+  border: 1px solid var(--border);
+  background: var(--page-bg);
+  border-radius: var(--radius);
+  padding: 0.5rem 0.65rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.infograph-root .field input:focus,
+.infograph-root .field select:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.infograph-root .drop-zone {
+  margin-top: 0.35rem;
+  border: 1.5px dashed var(--border);
+  border-radius: var(--radius);
+  padding: 0.85rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--muted);
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.infograph-root .drop-zone.is-dragover {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  color: var(--ink);
+}
+
+.infograph-root .drop-zone p {
+  margin: 0;
+}
+
+/* —— Stage / empty —— */
+.infograph-root .stage {
+  min-width: 0;
+}
+
+.infograph-root .empty-state {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: clamp(2rem, 6vw, 3.5rem);
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+.infograph-root .empty-state::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--hero-wash, none);
+  pointer-events: none;
+}
+
+.infograph-root .empty-brand {
+  position: relative;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 10vw, 5.5rem);
+  font-weight: var(--brand-weight, 700);
+  letter-spacing: var(--brand-tracking, -0.04em);
+  line-height: 0.9;
+  color: var(--brand);
+}
+
+.infograph-root .empty-state h1 {
+  position: relative;
+  margin: 0;
+  max-width: 18ch;
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 3.2vw, 1.85rem);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+.infograph-root .empty-copy {
+  position: relative;
+  margin: 0;
+  max-width: 36ch;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+.infograph-root .empty-actions {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+/* —— Infographic composition —— */
+.infograph-root .infographic {
+  background: var(--canvas);
+  color: var(--canvas-ink);
+  border: 1px solid var(--canvas-border);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.25rem, 3vw, 2rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+  box-shadow: var(--canvas-shadow, none);
+  background-image: var(--canvas-texture, none);
+  animation: canvas-in 0.45s ease both;
+}
+
+.infograph-root .infographic.is-theme-swap {
+  animation: theme-fade 0.35s ease both;
+}
+
+@keyframes canvas-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes theme-fade {
+  from {
+    opacity: 0.55;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.infograph-root .infographic-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.infograph-root .infographic-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: var(--title-tracking, -0.02em);
+  line-height: 1.05;
+  color: var(--canvas-ink);
+}
+
+.infograph-root .infographic-subtitle {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--canvas-muted);
+  max-width: 42ch;
+}
+
+.infograph-root .kpi-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+}
+
+.infograph-root .kpi {
+  padding: 0.85rem 0.9rem;
+  border-radius: var(--radius);
+  background: var(--kpi-bg);
+  border: 1px solid var(--kpi-border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+.infograph-root .kpi-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--canvas-muted);
+  font-weight: 600;
+}
+
+.infograph-root .kpi-value {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.5vw, 1.65rem);
+  font-weight: 700;
+  color: var(--kpi-accent, var(--accent));
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.infograph-root .visual-row {
+  display: grid;
+  grid-template-columns: 1.45fr 1fr;
+  gap: 1.1rem;
+  align-items: stretch;
+}
+
+.infograph-root .panel {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.infograph-root .panel-label {
+  margin: 0;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--canvas-muted);
+  font-weight: 700;
+}
+
+.infograph-root .chart-wrap {
+  position: relative;
+  height: 260px;
+  flex: 1;
+}
+
+.infograph-root .rank-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.infograph-root .rank-item {
+  display: grid;
+  grid-template-columns: 1.5rem 1fr auto;
+  gap: 0.55rem;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.infograph-root .rank-index {
+  font-family: var(--font-mono, var(--font-body));
+  font-size: 0.75rem;
+  color: var(--canvas-muted);
+  font-weight: 600;
+}
+
+.infograph-root .rank-name {
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.infograph-root .rank-value {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  color: var(--kpi-accent, var(--accent));
+  font-size: 0.85rem;
+}
+
+.infograph-root .rank-bar-track {
+  grid-column: 2 / -1;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--rank-track);
+  overflow: hidden;
+}
+
+.infograph-root .rank-bar-fill {
+  height: 100%;
+  width: 0;
+  border-radius: inherit;
+  background: var(--accent);
+  transition: width 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.infograph-root .infographic-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--canvas-border);
+  font-size: 0.75rem;
+  color: var(--canvas-muted);
+}
+
+.infograph-root .footer-credit {
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.infograph-root .ig-app-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: 0.75rem;
+  color: var(--muted);
+  padding-top: 0.25rem;
+}
+
+.infograph-root .ig-app-footer-brand {
+  font-weight: 600;
+}
+
+/* —— Parse progress / toast —— */
+.infograph-root .parse-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in srgb, var(--page-bg) 55%, rgba(0, 0, 0, 0.45));
+  backdrop-filter: blur(4px);
+}
+
+.infograph-root .parse-overlay[hidden] {
+  display: none !important;
+}
+
+.infograph-root .parse-card {
+  width: min(360px, calc(100vw - 2rem));
+  padding: 1.25rem 1.35rem;
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--canvas-shadow, 0 16px 40px rgba(0, 0, 0, 0.2));
+}
+
+.infograph-root .parse-title {
+  margin: 0 0 0.85rem;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.infograph-root .parse-bar {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--rank-track, var(--border));
+  overflow: hidden;
+}
+
+.infograph-root .parse-bar-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: inherit;
+  background: var(--accent);
+  transition: width 0.2s ease;
+}
+
+.infograph-root .parse-detail {
+  margin: 0.65rem 0 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.infograph-root .toast {
+  position: fixed;
+  left: 50%;
+  bottom: 1.25rem;
+  z-index: 50;
+  transform: translateX(-50%);
+  max-width: min(420px, calc(100vw - 2rem));
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--accent);
+  color: var(--ink);
+  font-size: 0.9rem;
+  font-weight: 500;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+}
+
+.infograph-root .toast[hidden] {
+  display: none !important;
+}
+
+.infograph-root .toast.is-error {
+  border-color: #ed4933;
+}
+
+.infograph-root.is-parsing {
+  cursor: progress;
+}
+
+.infograph-root.is-parsing .header-actions,
+.infograph-root.is-parsing .controls {
+  pointer-events: none;
+  opacity: 0.65;
+}
+

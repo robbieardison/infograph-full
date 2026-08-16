@@ -1,0 +1,17 @@
+region,quarter,revenue,orders,satisfaction
+North America,Q1,842000,1240,4.6
+North America,Q2,918000,1380,4.7
+North America,Q3,976000,1510,4.8
+North America,Q4,1124000,1680,4.9
+Europe,Q1,624000,980,4.4
+Europe,Q2,701000,1090,4.5
+Europe,Q3,758000,1180,4.6
+Europe,Q4,845000,1290,4.7
+Asia Pacific,Q1,512000,860,4.3
+Asia Pacific,Q2,589000,940,4.5
+Asia Pacific,Q3,671000,1050,4.6
+Asia Pacific,Q4,792000,1210,4.8
+Latin America,Q1,218000,410,4.1
+Latin America,Q2,246000,460,4.2
+Latin America,Q3,281000,520,4.3
+Latin America,Q4,334000,610,4.5
