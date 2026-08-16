@@ -5,22 +5,35 @@ import type { ChartSnapshot } from "@/lib/agent-scripts";
 
 export function StudioHero({ onSnapshot }: { onSnapshot?: (s: ChartSnapshot) => void }) {
   return (
-    <section id="tool" className="relative studio-grain">
-      <div className="pointer-events-none absolute inset-0 studio-mesh opacity-60" />
-      <div className="relative mx-auto max-w-6xl px-5 pb-6 pt-10 sm:px-8 sm:pt-14">
-        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-petrol">
-          Analytics studio
-        </p>
-        <h1 className="font-display mt-3 max-w-3xl text-4xl tracking-tight text-ink sm:text-5xl lg:text-6xl">
-          Infograph
-        </h1>
-        <p className="mt-4 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
-          Try the tool below — upload a CSV, pick a theme, export a PNG. Then explore analytics
-          websites we can build, plus consulting and an AI analyst demo.
-        </p>
-      </div>
-      <div className="relative mx-auto max-w-6xl px-3 pb-16 sm:px-6">
-        <InfographWorkspace onSnapshot={onSnapshot} autoLoadSample />
+    <section id="tool" className="border-b border-line bg-void">
+      <div className="mx-auto grid max-w-7xl gap-6 px-4 py-8 sm:px-6 lg:grid-cols-[minmax(0,220px)_1fr] lg:gap-8 lg:py-10">
+        <aside className="flex flex-col justify-between gap-6 lg:py-2">
+          <div>
+            <p className="font-mono text-[11px] text-petrol">01 · workbench</p>
+            <h1 className="font-display mt-3 text-3xl font-semibold leading-[1.1] tracking-tight text-ink sm:text-4xl">
+              CSV in.
+              <br />
+              <span className="text-petrol">Story out.</span>
+            </h1>
+            <p className="mt-4 text-sm leading-relaxed text-muted">
+              Upload data, theme it, export a PNG. This is the product — not a mockup of one.
+            </p>
+          </div>
+          <ul className="space-y-2 font-mono text-[11px] text-faint">
+            <li className="flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-petrol" /> Client-side only
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-orange" /> Soft limit 25k rows
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-red" /> Five visual themes
+            </li>
+          </ul>
+        </aside>
+        <div className="min-w-0 overflow-hidden rounded-lg border border-line bg-panel shadow-[0_0_0_1px_rgba(16,150,169,0.12)]">
+          <InfographWorkspace onSnapshot={onSnapshot} autoLoadSample />
+        </div>
       </div>
     </section>
   );

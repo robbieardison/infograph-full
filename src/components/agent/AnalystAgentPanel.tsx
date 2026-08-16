@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   AGENT_PROMPTS,
   getAgentReply,
@@ -24,66 +24,65 @@ export function AnalystAgentPanel({ snapshot }: { snapshot?: ChartSnapshot | nul
   const [messages, setMessages] = useState<Msg[]>([
     {
       role: "assistant",
-      text: "I’m a **demo** analyst. Pick a prompt — answers are scripted samples, not a live model.",
+      text: "Demo analyst only — answers are scripted. Pick a prompt keyed to your Infograph snapshot.",
     },
   ]);
   const [typing, setTyping] = useState(false);
   const snap = snapshot?.topLabel ? snapshot : SAMPLE;
-
-  useEffect(() => {
-    // keep panel in sync when infograph updates — no auto-message
-  }, [snapshot]);
 
   const ask = (intent: AgentIntent, label: string) => {
     if (typing) return;
     setMessages((m) => [...m, { role: "user", text: label }]);
     setTyping(true);
     window.setTimeout(() => {
-      const reply = getAgentReply(intent, snap);
-      setMessages((m) => [...m, { role: "assistant", text: reply }]);
+      setMessages((m) => [...m, { role: "assistant", text: getAgentReply(intent, snap) }]);
       setTyping(false);
     }, 650);
   };
 
   return (
-    <section id="agent" className="border-t border-line bg-card px-5 py-20 sm:px-8">
-      <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-2">
+    <section id="agent" className="border-b border-line bg-panel">
+      <div className="mx-auto grid max-w-7xl gap-8 px-4 py-14 sm:px-6 sm:py-16 lg:grid-cols-[1fr_1.15fr]">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-petrol">
-            AI analyst
-          </p>
-          <h2 className="font-display mt-3 text-3xl tracking-tight text-ink sm:text-4xl">
-            Ask about the chart
+          <p className="font-mono text-[11px] text-petrol">04 · analyst</p>
+          <h2 className="font-display mt-2 text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
+            Talk to the chart
           </h2>
-          <p className="mt-3 text-muted">
-            Scripted demo tied to your Infograph snapshot (or a sample). Production agents can plug
-            into your warehouse and real models.
+          <p className="mt-3 max-w-md text-sm leading-relaxed text-muted">
+            Scripted co-pilot over your live Infograph snapshot. Production agents wire into your
+            warehouse — this shows the experience.
           </p>
-          <div className="mt-6 inline-flex items-center gap-2 border border-petrol/30 bg-petrol-soft/40 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-petrol-deep">
-            Demo · sample answers
+          <div className="mt-5 inline-flex items-center gap-2 rounded-md border border-orange/40 bg-orange/10 px-3 py-1.5 font-mono text-[10px] text-orange">
+            demo · sample answers
           </div>
-          <dl className="mt-8 grid grid-cols-2 gap-3 text-sm">
-            <div className="border border-line bg-paper p-3">
-              <dt className="text-xs uppercase tracking-wider text-muted">Chart</dt>
-              <dd className="mt-1 font-semibold text-ink">{snap.title}</dd>
+          <dl className="mt-8 grid grid-cols-2 gap-3">
+            <div className="rounded-md border border-line bg-void p-3">
+              <dt className="font-mono text-[9px] uppercase text-faint">Chart</dt>
+              <dd className="mt-1 text-sm font-semibold text-ink">{snap.title}</dd>
             </div>
-            <div className="border border-line bg-paper p-3">
-              <dt className="text-xs uppercase tracking-wider text-muted">Top</dt>
-              <dd className="mt-1 font-semibold text-ink">
+            <div className="rounded-md border border-line bg-void p-3">
+              <dt className="font-mono text-[9px] uppercase text-faint">Leader</dt>
+              <dd className="mt-1 text-sm font-semibold text-petrol">
                 {snap.topLabel} · {snap.topValue}
               </dd>
             </div>
           </dl>
         </div>
 
-        <div className="flex min-h-[380px] flex-col border border-line bg-paper">
+        <div className="flex min-h-[360px] flex-col overflow-hidden rounded-lg border border-line bg-void">
+          <div className="flex items-center gap-2 border-b border-line px-3 py-2">
+            <span className="h-2 w-2 rounded-full bg-red" />
+            <span className="h-2 w-2 rounded-full bg-orange" />
+            <span className="h-2 w-2 rounded-full bg-petrol" />
+            <span className="ml-2 font-mono text-[10px] text-faint">analyst.session</span>
+          </div>
           <div className="flex flex-wrap gap-2 border-b border-line p-3">
             {AGENT_PROMPTS.map((p) => (
               <button
                 key={p.id}
                 type="button"
                 onClick={() => ask(p.id, p.label)}
-                className="rounded-sm border border-line bg-card px-3 py-1.5 text-xs font-semibold text-ink transition hover:border-petrol hover:text-petrol"
+                className="rounded-md border border-line bg-raised px-2.5 py-1 text-xs text-muted transition hover:border-petrol hover:text-ink"
               >
                 {p.label}
               </button>
@@ -93,18 +92,18 @@ export function AnalystAgentPanel({ snapshot }: { snapshot?: ChartSnapshot | nul
             {messages.map((m, i) => (
               <div
                 key={i}
-                className={`max-w-[92%] rounded-sm px-3 py-2 ${
+                className={`max-w-[92%] rounded-md px-3 py-2 ${
                   m.role === "user"
-                    ? "ml-auto bg-petrol text-white"
-                    : "bg-cream/80 text-ink"
+                    ? "ml-auto bg-red text-white"
+                    : "border border-line bg-panel text-ink"
                 }`}
               >
                 <MessageBody text={m.text} />
               </div>
             ))}
             {typing && (
-              <p className="text-xs font-medium text-muted" aria-live="polite">
-                Analyst is typing…
+              <p className="font-mono text-[11px] text-faint" aria-live="polite">
+                typing…
               </p>
             )}
           </div>

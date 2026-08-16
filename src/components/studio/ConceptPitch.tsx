@@ -10,35 +10,33 @@ type ConceptPitchProps = {
 
 export function ConceptPitch({ conceptTitle, accent }: ConceptPitchProps) {
   return (
-    <section className="relative overflow-hidden px-5 py-20 sm:px-8" style={{ background: "#121416", color: "#fff" }}>
+    <section className="relative overflow-hidden border-t border-white/10 bg-[#07090b] px-5 py-16 text-white sm:px-8">
+      <div className="sp-triad-gradient absolute inset-x-0 top-0 h-0.5" />
       <div
-        className="pointer-events-none absolute inset-0 opacity-50"
-        style={{
-          background: `radial-gradient(ellipse 70% 80% at 85% 20%, ${accent}88, transparent 55%)`,
-        }}
+        className="pointer-events-none absolute -right-20 top-0 h-64 w-64 rounded-full opacity-30 blur-3xl"
+        style={{ background: accent }}
       />
       <div className="relative mx-auto max-w-5xl">
-        <p className="text-xs font-semibold uppercase tracking-[0.22em]" style={{ color: accent }}>
-          Want this analytics surface?
+        <p className="font-mono text-[11px]" style={{ color: accent }}>
+          concept · Infograph · Stable Panther
         </p>
-        <h2 className="font-display mt-4 max-w-2xl text-3xl tracking-tight sm:text-5xl">
-          {conceptTitle} is a concept.
-          <span className="mt-2 block text-white/70">We can ship yours with the same craft.</span>
+        <h2 className="font-display mt-3 max-w-2xl text-3xl font-semibold tracking-tight sm:text-4xl">
+          {conceptTitle} is a speculative surface.
         </h2>
-        <p className="mt-5 max-w-lg text-white/60">
-          Analytics websites, data consulting, and optional AI analysts — designed so charts and
-          decisions stay connected.
+        <p className="mt-3 max-w-lg text-sm text-white/60">
+          We can build yours with the same density — analytics websites, consulting, and optional AI
+          analysts.
         </p>
-        <div className="mt-10 flex flex-wrap items-center gap-4">
+        <div className="mt-8 flex flex-wrap items-center gap-4">
           <a
             href={CONTACT_URL}
-            className="inline-flex rounded-sm px-6 py-3 text-sm font-semibold text-white"
+            className="inline-flex rounded-md px-5 py-2.5 text-sm font-semibold text-white"
             style={{ background: accent }}
           >
-            Start a project
+            Brief Stable Panther
           </a>
-          <a href="/#work" className="text-sm font-semibold text-white/55 transition hover:text-white">
-            Back to catalog
+          <a href="/#gallery" className="text-sm text-white/50 transition hover:text-white">
+            Back to gallery
           </a>
         </div>
       </div>

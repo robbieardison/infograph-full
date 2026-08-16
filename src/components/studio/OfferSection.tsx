@@ -1,35 +1,66 @@
-const pillars = [
+const modes = [
   {
-    title: "Analytics websites",
-    body: "Purpose-built dashboards and narrative sites — executive boards, ops consoles, product funnels — designed as products, not slide decks.",
+    id: "build",
+    accent: "petrol" as const,
+    title: "Build the surface",
+    body: "Analytics websites — boards, ops consoles, funnels, briefings — shipped as products people actually use.",
+    cue: "Websites",
   },
   {
-    title: "Data consulting",
-    body: "Help defining metrics, cleaning pipelines, and framing the questions that matter before a single chart ships.",
+    id: "consult",
+    accent: "orange" as const,
+    title: "Shape the analysis",
+    body: "Data consulting: metrics that matter, source truth, and the questions to ask before you draw a chart.",
+    cue: "Consulting",
   },
   {
-    title: "AI analyst agent",
-    body: "An optional co-pilot that explains charts and suggests next steps — demos below; production agents wired to your stack.",
+    id: "agent",
+    accent: "red" as const,
+    title: "Explain with an agent",
+    body: "Optional AI analyst that talks through charts and next steps — demo below; production on your stack.",
+    cue: "AI agent",
   },
 ];
 
+const accentClass = {
+  petrol: "accent-bar-petrol",
+  orange: "accent-bar-orange",
+  red: "accent-bar-red",
+};
+
+const cueClass = {
+  petrol: "text-petrol",
+  orange: "text-orange",
+  red: "text-red",
+};
+
 export function OfferSection() {
   return (
-    <section id="services" className="border-t border-line bg-card px-5 py-20 sm:px-8">
-      <div className="mx-auto max-w-6xl">
-        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-petrol">Services</p>
-        <h2 className="font-display mt-3 text-3xl tracking-tight text-ink sm:text-4xl">
-          Not just dashboards — decisions
-        </h2>
-        <p className="mt-3 max-w-2xl text-muted">
-          Hire Infograph as a data consultant and analytics studio: we build the surfaces and help
-          with the analysis behind them.
-        </p>
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {pillars.map((p) => (
-            <article key={p.title} className="border border-line bg-paper p-6">
-              <h3 className="font-display text-xl text-ink">{p.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted">{p.body}</p>
+    <section id="modes" className="border-b border-line bg-panel">
+      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-16">
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <p className="font-mono text-[11px] text-orange">02 · engagement modes</p>
+            <h2 className="font-display mt-2 text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
+              Three ways to work with us
+            </h2>
+          </div>
+          <p className="max-w-sm text-sm text-muted">
+            Infograph is Stable Panther’s analytics lane — craft for charts, narrative, and
+            decisions.
+          </p>
+        </div>
+
+        <div className="mt-10 grid gap-0 border border-line md:grid-cols-3">
+          {modes.map((m, i) => (
+            <article
+              key={m.id}
+              className={`relative bg-void/40 p-6 sm:p-8 ${i < modes.length - 1 ? "border-b border-line md:border-b-0 md:border-r" : ""}`}
+            >
+              <div className={`absolute inset-y-0 left-0 w-1 ${accentClass[m.accent]}`} />
+              <p className={`font-mono text-[11px] ${cueClass[m.accent]}`}>{m.cue}</p>
+              <h3 className="font-display mt-3 text-xl font-semibold text-ink">{m.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted">{m.body}</p>
             </article>
           ))}
         </div>

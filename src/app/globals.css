@@ -2,41 +2,51 @@
 @import "../styles/infograph-themes.css";
 
 /*
-  Infograph Full — Signal-aligned studio chrome
-  Cool paper + petrol teal. Energy lives in demos + Infograph tool.
+  Infograph — Stable Panther analytics sub-brand
+  Dark console surface + SP accents (petrol, red, orange).
+  Not the cream paper / Fraunces catalog look of the websites studio.
 */
 :root {
-  --ig-petrol: #1096a9;
-  --ig-petrol-deep: #0d7f8f;
-  --ig-petrol-soft: #c5e4ea;
-  --ig-ink: #141a22;
-  --ig-slate: #2e3842;
-  --ig-muted: #4f5d68;
-  --ig-paper: #eef5f7;
-  --ig-cream: #dce9ed;
-  --ig-line: rgba(16, 150, 169, 0.18);
-  --ig-card: #ffffff;
-  --ig-charcoal: #121416;
-  --background: var(--ig-paper);
+  --sp-petrol: #1096a9;
+  --sp-petrol-deep: #0d7f8f;
+  --sp-petrol-soft: #c5e4ea;
+  --sp-red: #e23a1f;
+  --sp-red-deep: #c42f18;
+  --sp-orange: #e87a2e;
+  --sp-orange-deep: #c9621c;
+
+  --ig-void: #07090b;
+  --ig-panel: #101418;
+  --ig-raised: #161b21;
+  --ig-line: rgba(232, 238, 240, 0.1);
+  --ig-ink: #e8eef0;
+  --ig-muted: #8a9aa0;
+  --ig-faint: #5c6b72;
+
+  --background: var(--ig-void);
   --foreground: var(--ig-ink);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-petrol: var(--ig-petrol);
-  --color-petrol-deep: var(--ig-petrol-deep);
-  --color-petrol-soft: var(--ig-petrol-soft);
-  --color-ink: var(--ig-ink);
-  --color-slate: var(--ig-slate);
-  --color-muted: var(--ig-muted);
-  --color-paper: var(--ig-paper);
-  --color-cream: var(--ig-cream);
+  --color-void: var(--ig-void);
+  --color-panel: var(--ig-panel);
+  --color-raised: var(--ig-raised);
   --color-line: var(--ig-line);
-  --color-card: var(--ig-card);
-  --color-charcoal: var(--ig-charcoal);
+  --color-ink: var(--ig-ink);
+  --color-muted: var(--ig-muted);
+  --color-faint: var(--ig-faint);
+  --color-petrol: var(--sp-petrol);
+  --color-petrol-deep: var(--sp-petrol-deep);
+  --color-petrol-soft: var(--sp-petrol-soft);
+  --color-red: var(--sp-red);
+  --color-red-deep: var(--sp-red-deep);
+  --color-orange: var(--sp-orange);
+  --color-orange-deep: var(--sp-orange-deep);
   --font-sans: var(--font-ibm-plex);
-  --font-display: var(--font-fraunces);
+  --font-display: var(--font-space-grotesk);
+  --font-mono: var(--font-ibm-mono);
 }
 
 html {
@@ -64,29 +74,35 @@ body {
 }
 
 ::selection {
-  background: color-mix(in srgb, var(--ig-petrol) 40%, white);
-  color: var(--ig-ink);
+  background: color-mix(in srgb, var(--sp-petrol) 45%, black);
+  color: #fff;
 }
 
 .font-display {
-  font-family: var(--font-fraunces), Georgia, serif;
+  font-family: var(--font-space-grotesk), system-ui, sans-serif;
 }
 
-.studio-grain {
-  background-image:
-    radial-gradient(ellipse 70% 45% at 10% -5%, rgba(16, 150, 169, 0.22), transparent 55%),
-    radial-gradient(ellipse 50% 40% at 95% 5%, rgba(16, 150, 169, 0.1), transparent 50%),
-    linear-gradient(180deg, #f3fafb 0%, #eef5f7 40%, #e4eef2 100%);
+.font-mono {
+  font-family: var(--font-ibm-mono), ui-monospace, monospace;
 }
 
-.studio-mesh {
-  background-image:
-    linear-gradient(rgba(16, 150, 169, 0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(16, 150, 169, 0.07) 1px, transparent 1px);
-  background-size: 48px 48px;
-  mask-image: linear-gradient(180deg, black, transparent 85%);
+/* Accent hairlines — SP triad */
+.accent-bar-petrol {
+  background: var(--sp-petrol);
+}
+.accent-bar-red {
+  background: var(--sp-red);
+}
+.accent-bar-orange {
+  background: var(--sp-orange);
 }
 
-.brand-rail {
-  background: linear-gradient(90deg, var(--ig-petrol) 0%, var(--ig-petrol-deep) 100%);
+.sp-triad-gradient {
+  background: linear-gradient(
+    90deg,
+    var(--sp-petrol) 0%,
+    var(--sp-petrol) 40%,
+    var(--sp-orange) 70%,
+    var(--sp-red) 100%
+  );
 }

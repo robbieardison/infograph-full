@@ -30,7 +30,8 @@ export type Concept = {
   flagship?: boolean;
 };
 
-export const CONTACT_URL = "mailto:hello@infograph.studio?subject=Infograph%20project";
+export const CONTACT_URL = "https://stablepanther.com/#contact";
+export const PARENT_URL = "https://stablepanther.com";
 
 export const BRANCH_LABELS: Record<ConceptBranch, string> = {
   executive: "Executive",

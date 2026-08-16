@@ -1,26 +1,30 @@
-const steps = [
-  { n: "01", title: "Discover", body: "Goals, audiences, and the decisions the site must unlock." },
-  { n: "02", title: "Model", body: "Metrics, sources, and the story structure behind the charts." },
-  { n: "03", title: "Visualize", body: "Interactive surfaces — boards, narratives, ops consoles." },
-  { n: "04", title: "Enable", body: "Handoff, consulting cadence, optional AI analyst on top." },
+/** Lightweight delivery strip — not the websites-studio process grid */
+const beats = [
+  { t: "Frame", d: "Decisions & audiences" },
+  { t: "Model", d: "Metrics & sources" },
+  { t: "Compose", d: "Surfaces & motion" },
+  { t: "Enable", d: "Handoff & agents" },
 ];
 
 export function ProcessSection() {
   return (
-    <section id="process" className="border-t border-line bg-cream/50 px-5 py-20 sm:px-8">
-      <div className="mx-auto max-w-6xl">
-        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-petrol">Process</p>
-        <h2 className="font-display mt-3 text-3xl tracking-tight text-ink sm:text-4xl">
-          Discover → Model → Visualize → Enable
-        </h2>
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {steps.map((s) => (
-            <article key={s.n} className="border border-line bg-card p-5">
-              <p className="font-mono text-xs font-semibold text-petrol">{s.n}</p>
-              <h3 className="font-display mt-2 text-xl text-ink">{s.title}</h3>
-              <p className="mt-2 text-sm text-muted">{s.body}</p>
-            </article>
-          ))}
+    <section id="process" className="border-b border-line bg-void">
+      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6">
+        <div className="flex flex-col gap-6 rounded-lg border border-line bg-raised/60 px-5 py-6 sm:flex-row sm:items-center sm:justify-between sm:px-8">
+          <p className="font-mono text-[11px] text-faint">how we ship</p>
+          <ol className="flex flex-1 flex-wrap items-center gap-x-6 gap-y-3 sm:justify-end">
+            {beats.map((b, i) => (
+              <li key={b.t} className="flex items-center gap-3">
+                {i > 0 && (
+                  <span className="hidden h-px w-6 bg-line sm:block" aria-hidden />
+                )}
+                <div>
+                  <p className="font-display text-sm font-semibold text-ink">{b.t}</p>
+                  <p className="text-xs text-muted">{b.d}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
         </div>
       </div>
     </section>
